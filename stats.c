@@ -13,7 +13,6 @@ int main()
 {
     int digits[DIGITS];
     int letters[LETTERS];
-    int terminalWidth = getTermWidth();
     nullify(digits, DIGITS);
     nullify(letters, LETTERS);
 
@@ -28,18 +27,29 @@ int main()
             letters[c - 'A']++;
     }
 
+    int terminalWidth = getTermWidth();
     histogram(digits, DIGITS, '0', terminalWidth);
     histogram(letters, LETTERS, 'a', terminalWidth);
 }
 
 void nullify(int arr[], int size)
 {
+    // alternatively can use memset
     for (int i = 0; i < size; i++)
     {
         arr[i] = 0;
     }
 }
 
+/**
+ * Print historgram
+ * 
+ * arr  - data array
+ * size - size of data
+ * start    - starting character for printing labels e.g. '0' or 'a'
+ * terminalWidth    - width of terminal
+ * 
+ */
 void histogram(int arr[], int size, int start, int terminalWidth)
 {
 
@@ -54,6 +64,8 @@ void histogram(int arr[], int size, int start, int terminalWidth)
     int batch = 1;
     int perBatch = size;
     int extras = 0;
+
+    //create batches if terminal is smaller than the width of all array elements.
     if (terminalWidth < req)
     {
         batch = req / terminalWidth;
@@ -98,6 +110,11 @@ void histogram(int arr[], int size, int start, int terminalWidth)
     }
 }
 
+/**
+ * Get terminal width from system's APIs
+ * 
+ * returns  - current terminal width (in columns)
+ */
 int getTermWidth()
 {
     struct winsize w;

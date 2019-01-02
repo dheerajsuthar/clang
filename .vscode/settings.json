@@ -1,6 +1,7 @@
 {
     "terminal.integrated.fontSize": 18,
     "files.associations": {
-        "signal.h": "c"
+        "signal.h": "c",
+        "string": "cpp"
     }
 }

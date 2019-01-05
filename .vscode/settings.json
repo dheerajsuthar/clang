@@ -2,6 +2,7 @@
     "terminal.integrated.fontSize": 18,
     "files.associations": {
         "signal.h": "c",
-        "string": "cpp"
+        "string": "cpp",
+        "exception": "cpp"
     }
 }
